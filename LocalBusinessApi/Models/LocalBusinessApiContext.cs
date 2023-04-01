@@ -6,6 +6,7 @@ namespace LocalBusinessApi.Models
   {
     public DbSet<Restaurant> Restaurants { get; set; }
     public DbSet<Shop> Shops { get; set; }
+    public DbSet<User> Users { get; set; }
 
     public LocalBusinessApiContext(DbContextOptions<LocalBusinessApiContext> options) : base(options)
     {

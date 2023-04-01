@@ -24,6 +24,7 @@ namespace LocalBusinessApi.Controllers
     [HttpPost("Authenticate")]
     public async Task<IActionResult> Authenticate([FromBody] UserCred userCred)
     {
+      var user = await _db.Users.FirstOrDefaultAsync(item => item.UserId == userCred.username && item.Password == userCred.password);
       return Ok();
     }
 
