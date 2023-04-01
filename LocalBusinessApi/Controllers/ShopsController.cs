@@ -44,5 +44,45 @@ namespace LocalBusinessApi.Controllers
       await _db.SaveChangesAsync();
       return CreatedAtAction(nameof(GetShop), new { id = shop.ShopId }, shop);
     }
+    
+    
+    
+    // PUT: api/Shops/1
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Put(int id, Shop shop)
+    {
+      if (id != shop.ShopId)
+      {
+        return BadRequest();
+      }
+
+      _db.Shops.Update(shop);
+
+      try
+      {
+        await _db.SaveChangesAsync();
+      }
+      catch (DbUpdateConcurrencyException)
+      {
+        if (!ShopExists(id))
+        {
+          return NotFound();
+        }
+        else
+        {
+          throw;
+        }
+      }
+
+      return NoContent();
+    }
+
+    private bool ShopExists(int id)
+    {
+      return _db.Shops.Any(e => e.ShopId == id);
+    }
+
+
+
   }
 }

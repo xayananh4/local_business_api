@@ -44,5 +44,41 @@ namespace LocalBusinessApi.Controllers
       await _db.SaveChangesAsync();
       return CreatedAtAction(nameof(GetRestaurant), new { id = restaurant.RestaurantId }, restaurant);
     }
+
+
+    // PUT: api/Restaurants/1
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Put(int id, Restaurant restaurant)
+    {
+      if (id != restaurant.RestaurantId)
+      {
+        return BadRequest();
+      }
+
+      _db.Restaurants.Update(restaurant);
+
+      try
+      {
+        await _db.SaveChangesAsync();
+      }
+      catch (DbUpdateConcurrencyException)
+      {
+        if (!RestaurantExists(id))
+        {
+          return NotFound();
+        }
+        else
+        {
+          throw;
+        }
+      }
+
+      return NoContent();
+    }
+
+    private bool RestaurantExists(int id)
+    {
+      return _db.Restaurants.Any(e => e.RestaurantId == id);
+    }
   }
 }
