@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LocalBusinessApi.Migrations
 {
     [DbContext(typeof(LocalBusinessApiContext))]
-    [Migration("20230331231912_SeedData")]
+    [Migration("20230401020009_SeedData")]
     partial class SeedData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -58,6 +58,47 @@ namespace LocalBusinessApi.Migrations
                         {
                             RestaurantId = 5,
                             Name = "Tiny Moreso"
+                        });
+                });
+
+            modelBuilder.Entity("LocalBusinessApi.Models.Shop", b =>
+                {
+                    b.Property<int>("ShopId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("ShopId");
+
+                    b.ToTable("Shops");
+
+                    b.HasData(
+                        new
+                        {
+                            ShopId = 1,
+                            Name = "Flutter"
+                        },
+                        new
+                        {
+                            ShopId = 2,
+                            Name = "MadeHere"
+                        },
+                        new
+                        {
+                            ShopId = 3,
+                            Name = "Tender Loving Empire"
+                        },
+                        new
+                        {
+                            ShopId = 4,
+                            Name = "Blackthorn Mercantile"
+                        },
+                        new
+                        {
+                            ShopId = 5,
+                            Name = "Made In Oregon"
                         });
                 });
 #pragma warning restore 612, 618

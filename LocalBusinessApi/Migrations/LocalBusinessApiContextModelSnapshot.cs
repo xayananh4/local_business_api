@@ -58,6 +58,47 @@ namespace LocalBusinessApi.Migrations
                             Name = "Tiny Moreso"
                         });
                 });
+
+            modelBuilder.Entity("LocalBusinessApi.Models.Shop", b =>
+                {
+                    b.Property<int>("ShopId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("ShopId");
+
+                    b.ToTable("Shops");
+
+                    b.HasData(
+                        new
+                        {
+                            ShopId = 1,
+                            Name = "Flutter"
+                        },
+                        new
+                        {
+                            ShopId = 2,
+                            Name = "MadeHere"
+                        },
+                        new
+                        {
+                            ShopId = 3,
+                            Name = "Tender Loving Empire"
+                        },
+                        new
+                        {
+                            ShopId = 4,
+                            Name = "Blackthorn Mercantile"
+                        },
+                        new
+                        {
+                            ShopId = 5,
+                            Name = "Made In Oregon"
+                        });
+                });
 #pragma warning restore 612, 618
         }
     }
