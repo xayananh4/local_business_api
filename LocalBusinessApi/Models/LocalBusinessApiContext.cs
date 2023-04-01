@@ -30,8 +30,16 @@ namespace LocalBusinessApi.Models
         new Shop { ShopId = 2, Name = "MadeHere" },
         new Shop { ShopId = 3, Name = "Tender Loving Empire" },
         new Shop { ShopId = 4, Name = "Blackthorn Mercantile" },
-        new Shop { ShopId = 5, Name = "Made In Oregon" }
-);
+        new Shop { ShopId = 5, Name = "Made In Oregon" });
+
+
+      builder.Entity<User>()
+            .HasKey(u => u.UserId);
+      builder.Entity<User>()
+                  .HasData(
+              new User { UserId = "admin1", Name = "adminuser", Password = "admin" });
+
+
     }
   }
 }

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace TravelApi.Models
+namespace LocalBusinessApi.Models
 {
     public partial class User
     {
