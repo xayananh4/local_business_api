@@ -80,5 +80,21 @@ namespace LocalBusinessApi.Controllers
     {
       return _db.Restaurants.Any(e => e.RestaurantId == id);
     }
+
+    // DELETE: api/Restaurants/1
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteRestaurant(int id)
+    {
+      Restaurant restaurant = await _db.Restaurants.FindAsync(id);
+      if (restaurant == null)
+      {
+        return NotFound();
+      }
+
+      _db.Restaurants.Remove(restaurant);
+      await _db.SaveChangesAsync();
+
+      return NoContent();
+    }
   }
 }

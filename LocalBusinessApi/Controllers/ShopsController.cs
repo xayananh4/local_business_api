@@ -44,9 +44,9 @@ namespace LocalBusinessApi.Controllers
       await _db.SaveChangesAsync();
       return CreatedAtAction(nameof(GetShop), new { id = shop.ShopId }, shop);
     }
-    
-    
-    
+
+
+
     // PUT: api/Shops/1
     [HttpPut("{id}")]
     public async Task<IActionResult> Put(int id, Shop shop)
@@ -80,6 +80,23 @@ namespace LocalBusinessApi.Controllers
     private bool ShopExists(int id)
     {
       return _db.Shops.Any(e => e.ShopId == id);
+    }
+
+
+    // DELETE: api/Shops/1
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteShop(int id)
+    {
+      Shop shop = await _db.Shops.FindAsync(id);
+      if (shop == null)
+      {
+        return NotFound();
+      }
+
+      _db.Shops.Remove(shop);
+      await _db.SaveChangesAsync();
+
+      return NoContent();
     }
 
 
