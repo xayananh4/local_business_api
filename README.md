@@ -32,6 +32,27 @@ A ASP.NET Core Web API that gets list of restaurant and shops.  User can update,
 * Add the appsettings.json and appsettings.Development.json file to .gitignore.
 * To view web application. Run commands: dotnet watch run 
 * Open the browser, go to https://localhost:5001
+# Further Exploration:
+* Open browser to launch _https://localhost:5001/swagger
+* Go to User Post section, click the 'Try it Out' button. 
+* Replace the strings with "admin" and "password" to generate token. 
+* Copy generated token, open Postman
+* Make a GET call in Postman. 
+* Enter http://localhost:5000/api/shops
+* In the Headers options enter "Authorization" for the Key field. 
+* In the value field enter: "bearer [Generated Token From Swagger]", Click Send
+
+# Local Business API ENDPOINTS:
+* GET - http://localhost:5000/api/Restaurants/ for all the restaurants
+* GET - http://localhost:5000/api/Shops/ for all the shops 
+* GET - http://localhost:5000/api/Restaurants{id} for a specific restaurant
+* GET - http://localhost:5000/api/Restaurants{id} for a specific shop
+* POST http://localhost:5000/api/Restaurants/ to create a new restaurant 
+* POST http://localhost:5000/api/Shops/ to create a new shop
+* PUT http://localhost:5000/api/Restaurants/{id} to update a restaurant 
+* PUT http://localhost:5000/api/Shops/{id} update a shop
+* DELETE http://localhost:5000/api/Restaurants/{id} delete a restaurant 
+* DELETE http://localhost:5000/api/Shops/{id} delete a shop 
 
 # Known bugs: 
 No bugs 
