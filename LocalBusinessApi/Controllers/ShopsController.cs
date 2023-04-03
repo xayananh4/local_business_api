@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using LocalBusinessApi.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LocalBusinessApi.Controllers
 {
   [Route("api/[controller]")]
   [ApiController]
+  [Authorize]
   public class ShopsController : ControllerBase
   {
     private readonly LocalBusinessApiContext _db;

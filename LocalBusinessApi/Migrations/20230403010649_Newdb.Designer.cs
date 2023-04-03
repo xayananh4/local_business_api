@@ -2,6 +2,7 @@
 using LocalBusinessApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LocalBusinessApi.Migrations
 {
     [DbContext(typeof(LocalBusinessApiContext))]
-    partial class LocalBusinessApiContextModelSnapshot : ModelSnapshot
+    [Migration("20230403010649_Newdb")]
+    partial class Newdb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -118,9 +120,9 @@ namespace LocalBusinessApi.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "admin",
-                            Name = "JoeMama",
-                            Password = "password"
+                            UserId = "admin1",
+                            Name = "adminuser",
+                            Password = "admin"
                         });
                 });
 #pragma warning restore 612, 618

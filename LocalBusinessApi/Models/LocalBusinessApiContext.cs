@@ -37,7 +37,7 @@ namespace LocalBusinessApi.Models
             .HasKey(u => u.UserId);
       builder.Entity<User>()
                   .HasData(
-              new User { UserId = "admin1", Name = "adminuser", Password = "admin" });
+             new User { UserId = "admin", Name = "JoeMama", Password = "password" });
 
 
     }
